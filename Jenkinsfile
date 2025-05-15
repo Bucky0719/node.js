@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/Bucky0719/FinacPlus.git'
+                git branch: 'dev', url: 'https://github.com/Bucky0719/FinacPlus.git'
             }
         }
         stage('Build Docker Image') {
@@ -14,10 +14,9 @@ pipeline {
                 sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
-        stage('Push Docker Image') {
+        stage('Create container') {
             steps {
-                sh 'docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg'
-                sh 'docker push $DOCKER_IMAGE'
+                sh 'docker run -d -p 80:8080 --name nodejs-cont $DOCKER_IMAGE'
             }
         }
 
