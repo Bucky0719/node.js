@@ -14,7 +14,7 @@ pipeline {
                 sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
-        stage('Create a container') {
+        stage('Create container') {
             steps {
                 sh 'docker run -d -p 80:8080 --name nodejs-cont $DOCKER_IMAGE'
             }
