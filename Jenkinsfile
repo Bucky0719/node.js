@@ -10,7 +10,7 @@ pipeline {
         DOCKER_CREDENTIALS = 'dockerhub-creds'  
     }
  
-    stages 
+    stages {
         stage('Build Docker Image') {
             steps {
                 script {
