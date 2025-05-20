@@ -10,13 +10,7 @@ pipeline {
         DOCKER_CREDENTIALS = 'dockerhub-creds'  
     }
  
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git url: 'https://github.com/Bucky0719/node.js.git', branch: 'dev'
-            }
-        }
- 
+    stages 
         stage('Build Docker Image') {
             steps {
                 script {
