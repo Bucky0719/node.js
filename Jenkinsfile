@@ -28,7 +28,7 @@ pipeline {
                 }
             }
         }
- 
+        
         stage('Update GitOps Repo') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "${GIT_CREDENTIALS}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
